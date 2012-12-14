@@ -8,6 +8,5 @@
 	echo $this->Form->end('Submit');
 ?>
 <ul>
-<li><a href="./dataList">Scaffold画面に戻る</a></li>
-<li><a href="./dataList">データ一覧画面に戻る</a></li>
+<li><a href="./index">データ一覧画面に戻る</a></li>
 </ul>

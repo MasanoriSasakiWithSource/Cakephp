@@ -5,18 +5,14 @@ class MySampleDatasController extends AppController
 
 	public function index()
 	{
-		$this->layout = "Sample";
-		$this->set("header_for_layout" , "SampleApplication");
-		$this->set("footer_for_layout" , "copyright by aaa 2012");
+		$this->_setLayout();
 		$datas = $this->MySampleData->find('all');
 		$this->set("datas" , $datas);
 	}
 
 	public function find()
 	{
-		$this->layout = "Sample";
-		$this->set("header_for_layout" , "SampleApplication");
-		$this->set("footer_for_layout" , "copylight 2012");
+		$this->_setLayout();
 
 		if(isset($this->data['id']))
 		{
@@ -32,35 +28,56 @@ class MySampleDatasController extends AppController
 		{
 			$data = null;
 		}
-
 		$this->set("data" , $data);
 	}
 
 	public function add()
 	{
-		$this->layout = "Sample";
-		$this->set("header_for_layout" , "SampleApplication");
-		$this->set("footer_for_layout" , "copylight 2012");
+		$this->_setLayout();
 
 		if($this->request->is('post'))
 		{
 			$this->MySampleData->save($this->request->data);
+			$this->redirect(array("action" => "index"));
 		}
 	}
 
 
-
 	public function edit($id)
+	{
+		$this->_setLayout();
+		$this->_setUpFormRequest($id, 'edit');
+	}
+
+	public function delete($id)
+	{
+		$this->_setLayout();
+		$this->_setUpFormRequest($id , 'delete');
+	}
+
+	private function _setLayout()
 	{
 		$this->layout = "Sample";
 		$this->set("header_for_layout" , "SampleApplication");
-		$this->set("footer_for_layout" , "CopyLight2012");
+		$this->set("footer_for_layout" , "copylight2012");
+	}
 
+
+	private function _setUpFormRequest($id , $job)
+	{
 		$this->MySampleData->id = $id;
-		if($this->request->is("post") || $this->request->is("put"))
+
+		if ($this->request->is("post") || $this->request->is("put"))
 		{
-			$this->MySampleData->save($this->request->data);
-			$this->redirect(array("action" => "index"));
+			if($job = "edit")
+			{
+				$this->MySampleData->delete($this->request->data('MySampleData.id'));
+			}
+			else
+			{
+				$this->MySampleData->delete($this->request->data('MySampleData.id'));
+			}
+			$this->redirect(array('action' => "index"));
 		}
 		else
 		{
