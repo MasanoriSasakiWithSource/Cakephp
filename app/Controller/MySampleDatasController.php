@@ -49,6 +49,8 @@ class MySampleDatasController extends AppController
 	}
 
 
+
+
 	public function edit()
 	{
 		$this->layout = "Sample";
