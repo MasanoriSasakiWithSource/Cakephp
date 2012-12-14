@@ -1,9 +1,9 @@
 <?php
 class MySampleDatasController extends AppController
 {
-	public $scaffold;
+	//public $scaffold;
 
-	public function dataList()
+	public function index()
 	{
 		$this->layout = "Sample";
 		$this->set("header_for_layout" , "SampleApplication");
@@ -50,19 +50,17 @@ class MySampleDatasController extends AppController
 
 
 
-
-	public function edit()
+	public function edit($id)
 	{
 		$this->layout = "Sample";
 		$this->set("header_for_layout" , "SampleApplication");
 		$this->set("footer_for_layout" , "CopyLight2012");
 
-		$id = $this->MySampleData->id;
-		debug($id);
+		$this->MySampleData->id = $id;
 		if($this->request->is("post") || $this->request->is("put"))
 		{
 			$this->MySampleData->save($this->request->data);
-			$this->redirect(array("action" => "dataList"));
+			$this->redirect(array("action" => "index"));
 		}
 		else
 		{
