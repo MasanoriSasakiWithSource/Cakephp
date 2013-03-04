@@ -27,33 +27,28 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
-		echo $this->Html->meta('icon');
-
-		echo $this->Html->css('cake.generic');
+		//echo $this->Html->meta('icon');
+		//echo $this->Html->css('cake.generic');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+	<?php echo $this->Html->charset(); ?>
+	<title></title>
+	<?php echo $this->Html->css('http://yui.yahooapis.com/3.8.0/build/cssreset/cssreset-min.css'); ?>
+	<?php echo $this->Html->css('bootstrap-responsive.min'); ?>
+	<?php echo $this->Html->css('bootstrap.min'); ?>
+	<?php echo $this->Html->css('pc/base_pc_index')?>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+	<?php echo $this->Html->script('pc/base_pc_'.$this->action)?>
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
 		<div id="content">
-
 			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>

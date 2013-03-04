@@ -1235,11 +1235,11 @@ INSERT INTO  `meets2`.`M_TEMP_REGIST_IMAGE_DATAS` (`ID` ,`M_TEMP_REGIST_BBS_DATA
 INSERT INTO  `meets2`.`M_TYPE_DATAS` (`ID` ,`NAME` ,`M_SEX_DATA_ID`)VALUES (NULL ,  '肉食系',  '1'),(NULL ,  '草食系',  '1'),(NULL ,  'カッコイイ系',  1),(NULL ,  'インテリ系',  1),(NULL ,  'ガテン系',  1),(NULL ,  'カワイイ系',  1),(NULL ,  'ダンディー系',  1),(NULL ,  'お兄系',  1),(NULL ,  'ギャル男系',  '1'),(NULL ,  'モデル系',  '1'),(NULL ,  'アキバ系',  '1');
 INSERT INTO  `meets2`.`M_TYPE_DATAS` (`ID` ,`NAME` ,`M_SEX_DATA_ID`)VALUES (NULL ,  '可愛い系',  2),(NULL ,  'お姉系',  2),(NULL ,  'ギャル系',  2),(NULL ,  'OL系',  2),(NULL ,  '萌え系',  2),(NULL ,  'マダム系',  2),(NULL ,  'モデル系',  2);
 
-/* T_AUTH_DATAS sql data*/
-INSERT INTO  `meets2`.`T_AUTH_DATAS` (`ID` ,`PASSWORD` ,`MAIL_ADDRESS` ,`NAME` ,`TEL_NO` ,`BIRTH_DAY` ,`GUID` ,`VALID_FLG` ,`AGE_CHECK_FLG` ,`TEMP_REGIST_FLG` ,`CREATED_AT` ,`MODIFIED`)VALUES (NULL ,  '0000',  'test@test.jp',  'testくん',  '09011112222',  '20110202',  '1',  '1',  '1',  '1', now() , now())
+/* Users sql data*/
+INSERT INTO  `meets2`.`users` (`ID` ,`PASSWORD` ,`MAIL_ADDRESS` ,`NAME` ,`TEL_NO` ,`BIRTH_DAY` ,`GUID` ,`VALID_FLG` ,`AGE_CHECK_FLG` ,`TEMP_REGIST_FLG` ,`CREATED_AT` ,`MODIFIED`)VALUES (NULL ,  '0000',  'test@test.jp',  'testくん',  '09011112222',  '20110202',  '1',  '1',  '1',  '1', now() , now())
 
-
-INSERT INTO  `meets2`.`M_PROFILE_DATAS` (`ID` ,`T_AUTH_DATA_ID` ,`M_SEX_DATA_ID` ,`M_WIDE_AREA_DATA_ID` ,`M_NARROW_AREA_DATA_ID` ,`M_TALL_DATA_ID` ,`N_BLOOD_TYPE_DATA_ID` ,`M_WEIGHT_DATA_ID` ,`M_INCOME_DATA_ID` ,`M_TYPE_DATA_ID` ,`COMMENT` ,`CREATED_AT` ,`MODIFIED`)VALUES (NULL ,  '1',  '1',  '7',  '1',  '1',  '1',  '1',  '1',  '72',  'よろしくお願いします', now() , now());
+/* M_PROFILE_DATAS sql data*/
+INSERT INTO  `meets2`.`M_PROFILE_DATAS` (`ID` ,`user_id` ,`M_SEX_DATA_ID` ,`M_WIDE_AREA_DATA_ID` ,`M_NARROW_AREA_DATA_ID` ,`M_TALL_DATA_ID` ,`N_BLOOD_TYPE_DATA_ID` ,`M_WEIGHT_DATA_ID` ,`M_INCOME_DATA_ID` ,`M_TYPE_DATA_ID` ,`COMMENT` ,`CREATED_AT` ,`MODIFIED`)VALUES (NULL ,  '1',  '1',  '7',  '1',  '1',  '1',  '1',  '1',  '1',  'よろしくお願いします', now() , now());
 
 
 
